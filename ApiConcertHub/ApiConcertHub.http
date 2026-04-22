@@ -1,0 +1,6 @@
+@ApiConcertHub_HostAddress = http://localhost:5230
+
+GET {{ApiConcertHub_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
