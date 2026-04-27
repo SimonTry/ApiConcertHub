@@ -50,5 +50,13 @@ namespace ApiConcertHub.Controllers
 
         }
 
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> ChangeState(Guid Id)
+        {
+            var state = await _eventService.ChangeStatus(Id);
+            var message = state == 1 ? "Active" : "Inactive";
+            return state == -1 ? NotFound() : Ok(message);
+        }
+
     }
 }

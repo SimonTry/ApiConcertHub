@@ -43,5 +43,17 @@ namespace ApiConcertHub.Services
             await _context.SaveChangesAsync();
             return true;
         }
+
+        public async Task<int> ChangeStatus(Guid id)
+        {
+            var objExist = await _context.Events.FindAsync(id);
+            if (objExist == null) return -1;
+
+            objExist.isActive = 
+                objExist.isActive == 0 ? 1 : 0;
+
+            await _context.SaveChangesAsync();
+            return objExist.isActive;
+        }
     }
 }

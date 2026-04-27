@@ -11,5 +11,7 @@ namespace ApiConcertHub.Interface
         Task<Eventos> Create(Eventos eventos);
 
         Task<bool> Edit(Guid id, Eventos editEvent);
+
+        Task<int> ChangeStatus(Guid id);
     }
 }
