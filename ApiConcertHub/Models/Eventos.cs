@@ -11,6 +11,6 @@ namespace ApiConcertHub.Models
 
         public string nombre_evento { get; set; }
 
-        public int isActive { get; set; }
+        public int isActive { get; set; } = 1;
     }
 }

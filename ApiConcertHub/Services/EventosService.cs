@@ -18,5 +18,10 @@ namespace ApiConcertHub.Services
         {
             return await _context.Events.Where(e => e.isActive == 1).ToListAsync();
         }
+
+        public async Task<Eventos> GetById(Guid id)
+        {
+            return await _context.Events.FindAsync(id);
+        }
     }
 }

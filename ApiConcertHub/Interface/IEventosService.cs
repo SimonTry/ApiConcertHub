@@ -6,5 +6,6 @@ namespace ApiConcertHub.Interface
     {
 
         Task<List<Eventos>> GetAll();
+        Task<Eventos> GetById(Guid Id);
     }
 }
