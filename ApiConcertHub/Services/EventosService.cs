@@ -31,5 +31,17 @@ namespace ApiConcertHub.Services
             await _context.SaveChangesAsync();
             return newEvent;
         }
+
+        public async Task<bool> Edit(Guid id, Eventos editEvent)
+        {
+            var objExist = await _context.Events.FindAsync(id);
+            if (objExist == null) return false;
+
+            objExist.nombre_evento = editEvent.nombre_evento;
+            objExist.nombre_artista = editEvent.nombre_artista;
+
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

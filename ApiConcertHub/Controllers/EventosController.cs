@@ -41,5 +41,14 @@ namespace ApiConcertHub.Controllers
                 new { id = created.id_evento }, newEvent);
 
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Edit(Guid id, Eventos editEvent)
+        {
+            var edited = await _eventService.Edit(id, editEvent);
+            return edited ? Ok(true) : NotFound(false);
+
+        }
+
     }
 }

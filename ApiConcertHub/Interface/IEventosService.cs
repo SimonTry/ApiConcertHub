@@ -9,5 +9,7 @@ namespace ApiConcertHub.Interface
         Task<Eventos> GetById(Guid Id);
 
         Task<Eventos> Create(Eventos eventos);
+
+        Task<bool> Edit(Guid id, Eventos editEvent);
     }
 }
