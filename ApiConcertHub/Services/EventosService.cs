@@ -23,5 +23,13 @@ namespace ApiConcertHub.Services
         {
             return await _context.Events.FindAsync(id);
         }
+
+
+        public async Task<Eventos> Create(Eventos newEvent) 
+        {
+            _context.Events.Add(newEvent);
+            await _context.SaveChangesAsync();
+            return newEvent;
+        }
     }
 }

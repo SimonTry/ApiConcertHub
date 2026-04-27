@@ -1,4 +1,5 @@
 ﻿using ApiConcertHub.Interface;
+using ApiConcertHub.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiConcertHub.Controllers
@@ -29,6 +30,15 @@ namespace ApiConcertHub.Controllers
         {
             var result = await _eventService.GetById(id);
             return result != null ? Ok(result) : NotFound();
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Eventos newEvent)
+        {
+            var created = await _eventService.Create(newEvent);
+            return CreatedAtAction(nameof(GetById),
+                new { id = created.id_evento }, newEvent);
 
         }
     }
