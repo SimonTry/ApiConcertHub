@@ -1,11 +1,13 @@
 ﻿using ApiConcertHub.Interface;
 using ApiConcertHub.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiConcertHub.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles ="Admin")]
     public class EventosController : Controller
     {
         private readonly IEventosService _eventService;
@@ -20,6 +22,7 @@ namespace ApiConcertHub.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _eventService.GetAll());
