@@ -45,6 +45,8 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<IEventosService, EventosService>();
+builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<ITicketService, TicketService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();

@@ -13,5 +13,8 @@ namespace ApiConcertHub.DAO
         }
 
         public DbSet<Eventos> Events { get; set; }
+        public DbSet<Clients> Clients { get; set; }
+        public DbSet<Tickets> Tickets { get; set; }
+
     }
 }
